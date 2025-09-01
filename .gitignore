@@ -399,6 +399,11 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 
+# Tree-sitter generated files (only ignore if generated, keep existing ones)
+src/AceAgent.Tools/CKG/native/languages/*/src/parser.c
+src/AceAgent.Tools/CKG/native/languages/*/src/tree_sitter/
+src/AceAgent.Tools/CKG/native/languages/*/binding.gyp
+
 # Keep runtime libraries (these should be committed)
 !src/AceAgent.Tools/CKG/native/runtimes/
 !src/AceAgent.Tools/CKG/runtimes/
