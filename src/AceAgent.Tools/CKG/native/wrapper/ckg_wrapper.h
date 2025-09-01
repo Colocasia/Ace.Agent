@@ -123,14 +123,20 @@ typedef struct {
 } CKGParseResult;
 
 // API functions
-int ckg_init(void);
-void ckg_cleanup(void);
+#ifdef _WIN32
+#define CKG_API __declspec(dllexport)
+#else
+#define CKG_API __attribute__((visibility("default")))
+#endif
+
+CKG_API int ckg_init(void);
+CKG_API void ckg_cleanup(void);
 const char* ckg_get_version(void);
 bool ckg_is_language_supported(CKGLanguage language);
 CKGParseResult* ckg_parse(CKGLanguage language, const char* source_code, const char* file_path);
-char* ckg_parse_json(void* parser_ptr, const char* source_code, const char* language, const char* file_path);
+CKG_API char* ckg_parse_json(void* parser_ptr, const char* source_code, const char* language, const char* file_path);
 void ckg_free_result(CKGParseResult* result);
-void ckg_free_json_result(char* json_result);
+CKG_API void ckg_free_json_result(char* json_result);
 
 #ifdef __cplusplus
 }
