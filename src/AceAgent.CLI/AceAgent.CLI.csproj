@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>aceagent-cli</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AceAgent.Core\AceAgent.Core.csproj" />
+    <ProjectReference Include="..\AceAgent.Infrastructure\AceAgent.Infrastructure.csproj" />
+    <ProjectReference Include="..\AceAgent.Tools\AceAgent.Tools.csproj" />
+    <ProjectReference Include="..\AceAgent.LLM\AceAgent.LLM.csproj" />
+    <ProjectReference Include="..\AceAgent.Services\AceAgent.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
+    <PackageReference Include="YamlDotNet" Version="13.7.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,21 @@
+[submodule "reference/trae-agent"]
+	path = reference/trae-agent
+	url = https://github.com/bytedance/trae-agent.git
+[submodule "src/AceAgent.Tools/CKG/native/languages/tree-sitter-c"]
+	path = src/AceAgent.Tools/CKG/native/languages/tree-sitter-c
+	url = https://github.com/tree-sitter/tree-sitter-c.git
+[submodule "src/AceAgent.Tools/CKG/native/languages/tree-sitter-cpp"]
+	path = src/AceAgent.Tools/CKG/native/languages/tree-sitter-cpp
+	url = https://github.com/tree-sitter/tree-sitter-cpp.git
+[submodule "src/AceAgent.Tools/CKG/native/languages/tree-sitter-java"]
+	path = src/AceAgent.Tools/CKG/native/languages/tree-sitter-java
+	url = https://github.com/tree-sitter/tree-sitter-java.git
+[submodule "src/AceAgent.Tools/CKG/native/languages/tree-sitter-typescript"]
+	path = src/AceAgent.Tools/CKG/native/languages/tree-sitter-typescript
+	url = https://github.com/tree-sitter/tree-sitter-typescript.git
+[submodule "src/AceAgent.Tools/CKG/native/languages/tree-sitter-go"]
+	path = src/AceAgent.Tools/CKG/native/languages/tree-sitter-go
+	url = https://github.com/tree-sitter/tree-sitter-go.git
+[submodule "src/AceAgent.Tools/CKG/native/languages/tree-sitter-rust"]
+	path = src/AceAgent.Tools/CKG/native/languages/tree-sitter-rust
+	url = https://github.com/tree-sitter/tree-sitter-rust.git
