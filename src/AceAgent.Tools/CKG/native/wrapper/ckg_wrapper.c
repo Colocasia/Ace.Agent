@@ -3,7 +3,9 @@
 #include <string.h>
 #include <stdbool.h>
 #include <stdint.h>
+#ifndef _WIN32
 #include <unistd.h>
+#endif
 #include "tree_sitter/api.h"
 #include "ckg_wrapper.h"
 
