@@ -9,7 +9,10 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # Detect platform
 if(APPLE)
-    if(CMAKE_SYSTEM_PROCESSOR MATCHES "arm64|aarch64")
+    # Check if CMAKE_OSX_ARCHITECTURES is set (from command line)
+    if(CMAKE_OSX_ARCHITECTURES MATCHES "arm64")
+        set(PLATFORM_DIR "osx-arm64")
+    elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "arm64|aarch64")
         set(PLATFORM_DIR "osx-arm64")
     else()
         set(PLATFORM_DIR "osx-x64")
