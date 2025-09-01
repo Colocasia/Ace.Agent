@@ -57,19 +57,9 @@ set(LANGUAGE_LIBRARIES
 )
 
 # Build tree-sitter core library
+# Note: lib.c includes all other source files, so we only need to compile lib.c
 add_library(tree-sitter STATIC
     tree-sitter/lib/src/lib.c
-    tree-sitter/lib/src/parser.c
-    tree-sitter/lib/src/lexer.c
-    tree-sitter/lib/src/tree.c
-    tree-sitter/lib/src/node.c
-    tree-sitter/lib/src/language.c
-    tree-sitter/lib/src/query.c
-    tree-sitter/lib/src/tree_cursor.c
-    tree-sitter/lib/src/subtree.c
-    tree-sitter/lib/src/stack.c
-    tree-sitter/lib/src/alloc.c
-    tree-sitter/lib/src/get_changed_ranges.c
 )
 
 # Add language parsers using simplified function
