@@ -1,3 +1,4 @@
+#define BUILDING_CKG_DLL
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
