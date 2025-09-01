@@ -52,7 +52,11 @@ static void add_function(ParsedData* data, const char* name, const char* class_n
 static void walk_tree(TSNode node, const char* source_code, ParsedData* data, const char* current_class);
 
 // Initialize the CKG wrapper
+#ifdef _WIN32
+__declspec(dllexport)
+#else
 __attribute__((visibility("default")))
+#endif
 int ckg_init(void) {
     if (initialized) {
         return 1;
@@ -69,7 +73,11 @@ int ckg_init(void) {
 }
 
 // Cleanup resources
+#ifdef _WIN32
+__declspec(dllexport)
+#else
 __attribute__((visibility("default")))
+#endif
 void ckg_cleanup(void) {
     if (parser) {
         ts_parser_delete(parser);
@@ -439,7 +447,11 @@ static void walk_tree(TSNode node, const char* source_code, ParsedData* data, co
     }
 }
 
+#ifdef _WIN32
+__declspec(dllexport)
+#else
 __attribute__((visibility("default")))
+#endif
 char* ckg_parse_json(void* parser_ptr, const char* source_code, const char* language, const char* file_path) {
     if (!initialized || !source_code || !language || !file_path || !parser) {
         return NULL;
@@ -541,7 +553,11 @@ char* ckg_parse_json(void* parser_ptr, const char* source_code, const char* lang
 }
 
 // Free JSON result
+#ifdef _WIN32
+__declspec(dllexport)
+#else
 __attribute__((visibility("default")))
+#endif
 void ckg_free_json_result(char* json_result) {
     if (json_result) {
         free(json_result);
