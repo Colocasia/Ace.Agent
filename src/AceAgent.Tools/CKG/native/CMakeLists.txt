@@ -4,6 +4,9 @@ project(ckg_wrapper)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 
+# Enable position independent code for all targets
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+
 # Detect platform
 if(APPLE)
     if(CMAKE_SYSTEM_PROCESSOR MATCHES "arm64|aarch64")
