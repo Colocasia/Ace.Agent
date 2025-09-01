@@ -77,13 +77,13 @@ CKG_API void ckg_cleanup(void) {
 }
 
 // Get version string
-const char* ckg_get_version(void) {
+CKG_API const char* ckg_get_version(void) {
     static const char* version = "1.0.0-mock";
     return version;
 }
 
 // Check if language is supported
-bool ckg_is_language_supported(CKGLanguage language) {
+CKG_API bool ckg_is_language_supported(CKGLanguage language) {
     switch (language) {
         case CKG_LANG_C:
         case CKG_LANG_CPP:
@@ -149,7 +149,7 @@ static const TSLanguage* get_ts_language(CKGLanguage language) {
 }
 
 // Parse source code and return results
-CKGParseResult* ckg_parse(CKGLanguage language, const char* source_code, const char* file_path) {
+CKG_API CKGParseResult* ckg_parse(CKGLanguage language, const char* source_code, const char* file_path) {
     if (!initialized || !parser || !source_code) {
         return NULL;
     }
@@ -545,7 +545,7 @@ CKG_API void ckg_free_json_result(char* json_result) {
 }
 
 // Free parse result
-void ckg_free_result(CKGParseResult* result) {
+CKG_API void ckg_free_result(CKGParseResult* result) {
     if (!result) {
         return;
     }
