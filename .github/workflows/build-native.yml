@@ -48,6 +48,10 @@ jobs:
       if: matrix.os == 'windows-latest'
       uses: microsoft/setup-msbuild@v2
       
+    - name: Setup Visual Studio environment (Windows only)
+      if: matrix.os == 'windows-latest'
+      uses: ilammy/msvc-dev-cmd@v1
+      
     - name: Configure CMake
       working-directory: src/AceAgent.Tools/CKG/native
       run: |
