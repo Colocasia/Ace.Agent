@@ -71,8 +71,7 @@ jobs:
       working-directory: src/AceAgent.Tools/CKG
       run: |
         if [ "${{ matrix.os }}" = "windows-latest" ]; then
-          echo "Skipping tests on Windows due to test executable compilation issues"
-          echo "DLL should be generated successfully"
+          ./runtimes/${{ matrix.platform }}/native/test_all_languages.exe
         else
           ./runtimes/${{ matrix.platform }}/native/test_all_languages
         fi
