@@ -1,8 +1,28 @@
 # AceAgent
 
+[![Build Native Libraries](https://github.com/Colocasia/Ace.Agent/actions/workflows/build-native.yml/badge.svg)](https://github.com/Colocasia/Ace.Agent/actions/workflows/build-native.yml)
+
 > 基于.NET 8的智能代理系统，灵感来源于 [trae-agent](https://github.com/bytedance/trae-agent)
 
 AceAgent是一个功能强大的LLM驱动的代理系统，专为通用软件工程任务而设计。它提供了强大的CLI界面，能够理解自然语言指令并使用各种工具和LLM提供商执行复杂的软件工程工作流程。
+
+## 🧪 测试状态
+
+| 平台 | 架构 | 状态 | 说明 |
+|------|------|------|------|
+| Linux | x64 | ✅ 通过 | 支持所有语言解析器测试 |
+| Windows | x64 | ✅ 通过 | 支持exe+dll方式运行测试 |
+| macOS | x64 | ✅ 通过 | Intel芯片Mac支持 |
+| macOS | ARM64 | ✅ 通过 | Apple Silicon Mac支持 |
+
+所有平台都支持以下语言的代码解析测试：
+- C/C++
+- C#
+- Java
+- JavaScript
+- Python
+- Rust
+- TypeScript
 
 ## ✨ 特性
 
