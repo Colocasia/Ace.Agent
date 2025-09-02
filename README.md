@@ -2,20 +2,22 @@
 
 [![Build Native Libraries](https://github.com/Colocasia/Ace.Agent/actions/workflows/build-native.yml/badge.svg)](https://github.com/Colocasia/Ace.Agent/actions/workflows/build-native.yml)
 
-> 基于.NET 8的智能代理系统，灵感来源于 [trae-agent](https://github.com/bytedance/trae-agent)
+> A .NET 8-based intelligent agent system, inspired by [trae-agent](https://github.com/bytedance/trae-agent)
 
-AceAgent是一个功能强大的LLM驱动的代理系统，专为通用软件工程任务而设计。它提供了强大的CLI界面，能够理解自然语言指令并使用各种工具和LLM提供商执行复杂的软件工程工作流程。
+[中文文档](README.zh.md) | English
 
-## 🧪 测试状态
+AceAgent is a powerful LLM-driven agent system designed for general software engineering tasks. It provides a robust CLI interface that can understand natural language instructions and execute complex software engineering workflows using various tools and LLM providers.
 
-| 平台 | 架构 | 状态 | 说明 |
-|------|------|------|------|
-| Linux | x64 | ✅ 通过 | 支持所有语言解析器测试 |
-| Windows | x64 | ✅ 通过 | 支持exe+dll方式运行测试 |
-| macOS | x64 | ✅ 通过 | Intel芯片Mac支持 |
-| macOS | ARM64 | ✅ 通过 | Apple Silicon Mac支持 |
+## 🧪 Test Status
 
-所有平台都支持以下语言的代码解析测试：
+| Platform | Architecture | Status | Description |
+|----------|--------------|--------|-------------|
+| Linux | x64 | ✅ Passed | Supports all language parser tests |
+| Windows | x64 | ✅ Passed | Supports exe+dll test execution |
+| macOS | x64 | ✅ Passed | Intel chip Mac support |
+| macOS | ARM64 | ✅ Passed | Apple Silicon Mac support |
+
+All platforms support code parsing tests for the following languages:
 - C/C++
 - C#
 - Java
@@ -24,40 +26,40 @@ AceAgent是一个功能强大的LLM驱动的代理系统，专为通用软件工
 - Rust
 - TypeScript
 
-## ✨ 特性
+## ✨ Features
 
-🌊 **Lakeview总结**: 为代理步骤提供简洁的总结分析  
-🤖 **多LLM支持**: 支持OpenAI、Anthropic、Doubao等API  
-🛠️ **丰富的工具生态**: 文件编辑、命令执行、推理分析等  
-🎯 **CLI界面**: 支持聊天模式和任务执行模式  
-📊 **轨迹记录**: 详细记录所有代理操作，便于调试和分析  
-⚙️ **灵活配置**: 基于YAML的配置系统，支持环境变量  
-🚀 **类型安全**: 基于C#/.NET的强类型系统，提供更好的可靠性
+🌊 **Lakeview Summaries**: Provides concise summary analysis for agent steps  
+🤖 **Multi-LLM Support**: Supports OpenAI, Anthropic, Doubao, and other APIs  
+🛠️ **Rich Tool Ecosystem**: File editing, command execution, reasoning analysis, and more  
+🎯 **CLI Interface**: Supports both chat mode and task execution mode  
+📊 **Trajectory Recording**: Detailed logging of all agent operations for debugging and analysis  
+⚙️ **Flexible Configuration**: YAML-based configuration system with environment variable support  
+🚀 **Type Safety**: C#/.NET strong type system provides better reliability
 
-## 🚀 快速开始
+## 🚀 Quick Start
 
-### 环境要求
+### Requirements
 
 - .NET 8 SDK
-- 选择的LLM提供商的API密钥 (OpenAI, Anthropic, Doubao等)
+- API keys for your chosen LLM provider (OpenAI, Anthropic, Doubao, etc.)
 
-### 安装
+### Installation
 
 ```bash
-git clone https://github.com/your-username/AceAgent.git
-cd AceAgent
+git clone https://github.com/Colocasia/Ace.Agent.git
+cd Ace.Agent
 dotnet restore
 dotnet build
 ```
 
-### ⚙️ 配置
+### ⚙️ Configuration
 
-1. 初始化配置文件：
+1. Initialize configuration file:
 ```bash
 dotnet run --project src/AceAgent.CLI -- config init
 ```
 
-2. 设置API密钥：
+2. Set API keys:
 ```bash
 # OpenAI
 dotnet run --project src/AceAgent.CLI -- config set openai_api_key "your-openai-api-key"
@@ -69,110 +71,110 @@ dotnet run --project src/AceAgent.CLI -- config set anthropic_api_key "your-anth
 dotnet run --project src/AceAgent.CLI -- config set doubao_api_key "your-doubao-api-key"
 ```
 
-3. 验证配置：
+3. Validate configuration:
 ```bash
 dotnet run --project src/AceAgent.CLI -- config validate
 ```
 
-## 📖 使用方法
+## 📖 Usage
 
-### 基本命令
+### Basic Commands
 
 ```bash
-# 任务执行
-dotnet run --project src/AceAgent.CLI -- execute "创建一个Hello World Python脚本"
+# Task execution
+dotnet run --project src/AceAgent.CLI -- execute "Create a Hello World Python script"
 
-# 聊天模式
+# Chat mode
 dotnet run --project src/AceAgent.CLI -- chat
 
-# 查看配置
+# View configuration
 dotnet run --project src/AceAgent.CLI -- config list
 
-# 轨迹管理
+# Trajectory management
 dotnet run --project src/AceAgent.CLI -- trajectory list
 ```
 
-### 指定提供商和模型
+### Specify Provider and Model
 
 ```bash
-# 使用OpenAI
-dotnet run --project src/AceAgent.CLI -- execute "修复main.py中的bug" --provider openai --model gpt-4
+# Using OpenAI
+dotnet run --project src/AceAgent.CLI -- execute "Fix bug in main.py" --provider openai --model gpt-4
 
-# 使用Anthropic
-dotnet run --project src/AceAgent.CLI -- execute "添加单元测试" --provider anthropic --model claude-3-sonnet-20240229
+# Using Anthropic
+dotnet run --project src/AceAgent.CLI -- execute "Add unit tests" --provider anthropic --model claude-3-sonnet-20240229
 
-# 使用Doubao
-dotnet run --project src/AceAgent.CLI -- execute "重构数据库模块" --provider doubao --model doubao-seed-1.6
+# Using Doubao
+dotnet run --project src/AceAgent.CLI -- execute "Refactor database module" --provider doubao --model doubao-seed-1.6
 ```
 
-### 高级选项
+### Advanced Options
 
 ```bash
-# 保存执行轨迹
-dotnet run --project src/AceAgent.CLI -- execute "调试认证问题" --save-trajectory
+# Save execution trajectory
+dotnet run --project src/AceAgent.CLI -- execute "Debug authentication issue" --save-trajectory
 
-# 详细输出
+# Verbose output
 dotnet run --project src/AceAgent.CLI -- chat --verbose
 
-# 自定义配置文件
-dotnet run --project src/AceAgent.CLI -- execute "更新API端点" --config-file custom-config.yaml
+# Custom configuration file
+dotnet run --project src/AceAgent.CLI -- execute "Update API endpoints" --config-file custom-config.yaml
 ```
 
-## 🏗️ 项目架构
+## 🏗️ Project Architecture
 
 ```
 AceAgent/
 ├── src/
-│   ├── AceAgent.Core/          # 核心接口和模型
-│   ├── AceAgent.LLM/           # LLM提供商实现
-│   ├── AceAgent.Tools/         # 工具系统
-│   ├── AceAgent.Services/      # Lakeview等服务
-│   ├── AceAgent.Infrastructure/ # 基础设施(数据库等)
-│   └── AceAgent.CLI/           # CLI界面
+│   ├── AceAgent.Core/          # Core interfaces and models
+│   ├── AceAgent.LLM/           # LLM provider implementations
+│   ├── AceAgent.Tools/         # Tool system
+│   ├── AceAgent.Services/      # Services like Lakeview
+│   ├── AceAgent.Infrastructure/ # Infrastructure (database, etc.)
+│   └── AceAgent.CLI/           # CLI interface
 ├── tests/
-│   └── AceAgent.Tests/         # 单元测试
-└── docs/                       # 文档
+│   └── AceAgent.Tests/         # Unit tests
+└── docs/                       # Documentation
 ```
 
-## 🛠️ 工具系统
+## 🛠️ Tool System
 
-AceAgent内置了丰富的工具集：
+AceAgent comes with a rich set of built-in tools:
 
-- **FileEditTool**: 基于字符串替换的安全文件编辑
-- **CommandExecutorTool**: 跨平台命令执行，支持安全策略
-- **ReasoningTool**: 结构化推理和问题分析
-- **TaskCompletionTool**: 任务完成状态管理
+- **FileEditTool**: Safe file editing based on string replacement
+- **CommandExecutorTool**: Cross-platform command execution with security policies
+- **ReasoningTool**: Structured reasoning and problem analysis
+- **TaskCompletionTool**: Task completion status management
 
-## 📊 轨迹记录
+## 📊 Trajectory Recording
 
-所有代理操作都会被详细记录，包括：
-- 执行步骤和时间
-- 输入输出数据
-- 错误信息和恢复过程
-- 性能指标
+All agent operations are logged in detail, including:
+- Execution steps and timestamps
+- Input/output data
+- Error information and recovery processes
+- Performance metrics
 
 ```bash
-# 查看轨迹列表
+# View trajectory list
 dotnet run --project src/AceAgent.CLI -- trajectory list
 
-# 查看特定轨迹
+# View specific trajectory
 dotnet run --project src/AceAgent.CLI -- trajectory show <trajectory-id>
 
-# 删除轨迹
+# Delete trajectory
 dotnet run --project src/AceAgent.CLI -- trajectory delete <trajectory-id>
 ```
 
-## 🌊 Lakeview总结
+## 🌊 Lakeview Summaries
 
-Lakeview服务提供智能的轨迹分析和总结：
-- 执行步骤概览
-- 性能指标分析
-- 错误模式识别
-- 改进建议
+The Lakeview service provides intelligent trajectory analysis and summaries:
+- Execution step overview
+- Performance metrics analysis
+- Error pattern identification
+- Improvement suggestions
 
-## ⚙️ 配置系统
+## ⚙️ Configuration System
 
-配置文件位于 `~/.aceagent/config.yaml`：
+Configuration file is located at `~/.aceagent/config.yaml`:
 
 ```yaml
 default_provider: openai
@@ -184,80 +186,80 @@ doubao_api_key: your-key
 doubao_default_model: doubao-seed-1.6
 max_tokens: 4096
 temperature: 0.7
-# ... 更多配置选项
+# ... more configuration options
 ```
 
-## 🔄 与Trae-Agent的关系
+## 🔄 Relationship with Trae-Agent
 
-AceAgent深受 [trae-agent](https://github.com/bytedance/trae-agent) 启发，在保持核心功能对齐的同时，提供了以下优势：
+AceAgent is deeply inspired by [trae-agent](https://github.com/bytedance/trae-agent). While maintaining core functionality alignment, it provides the following advantages:
 
-### 相同的核心功能
-- ✅ Lakeview总结系统
-- ✅ 多LLM提供商支持
-- ✅ 丰富的工具生态系统
-- ✅ 轨迹记录和分析
-- ✅ 灵活的配置管理
+### Same Core Features
+- ✅ Lakeview summary system
+- ✅ Multi-LLM provider support
+- ✅ Rich tool ecosystem
+- ✅ Trajectory recording and analysis
+- ✅ Flexible configuration management
 
-### AceAgent的独特优势
-- **类型安全**: C#强类型系统提供更好的可靠性
-- **性能**: 编译型语言的性能优势
-- **模块化**: 清晰的分层架构和依赖注入
-- **跨平台**: .NET 8的优秀跨平台支持
-- **企业级**: 适合企业环境的安全性和可维护性
+### AceAgent's Unique Advantages
+- **Type Safety**: C# strong type system provides better reliability
+- **Performance**: Compiled language performance advantages
+- **Modularity**: Clear layered architecture and dependency injection
+- **Cross-platform**: Excellent cross-platform support with .NET 8
+- **Enterprise-grade**: Security and maintainability suitable for enterprise environments
 
-详细的功能对比请参考 [功能对比报告](./功能对比报告.md)。
+For detailed feature comparison, please refer to the [Feature Comparison Report](./功能对比报告.md).
 
-## 🧪 测试
+## 🧪 Testing
 
 ```bash
-# 运行所有测试
+# Run all tests
 dotnet test
 
-# 运行特定测试
+# Run specific tests
 dotnet test --filter "TestName"
 ```
 
-## 📝 开发
+## 📝 Development
 
-### 添加新的LLM提供商
+### Adding New LLM Providers
 
-1. 实现 `ILLMProvider` 接口
-2. 在 `LLMProviderFactory` 中注册
-3. 添加相应的配置选项
+1. Implement the `ILLMProvider` interface
+2. Register in `LLMProviderFactory`
+3. Add corresponding configuration options
 
-### 添加新工具
+### Adding New Tools
 
-1. 实现 `ITool` 接口
-2. 在DI容器中注册
-3. 更新工具注册逻辑
+1. Implement the `ITool` interface
+2. Register in the DI container
+3. Update tool registration logic
 
-## 🤝 贡献
+## 🤝 Contributing
 
-欢迎贡献代码！请遵循以下步骤：
+Contributions are welcome! Please follow these steps:
 
-1. Fork 项目
-2. 创建功能分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 打开 Pull Request
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 📄 许可证
+## 📄 License
 
-本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 致谢
+## 🙏 Acknowledgments
 
-- 感谢 [trae-agent](https://github.com/bytedance/trae-agent) 项目提供的灵感和参考
-- 感谢所有LLM提供商为AI发展做出的贡献
-- 感谢.NET社区的支持和贡献
+- Thanks to the [trae-agent](https://github.com/bytedance/trae-agent) project for inspiration and reference
+- Thanks to all LLM providers for their contributions to AI development
+- Thanks to the .NET community for their support and contributions
 
-## 📞 联系
+## 📞 Contact
 
-如有问题或建议，请通过以下方式联系：
-- 提交 Issue
-- 发起 Discussion
-- 发送邮件至 [your-email@example.com]
+For questions or suggestions, please contact us through:
+- Submit an Issue
+- Start a Discussion
+- Send email to [aceagent@example.com]
 
 ---
 
-**AceAgent - 让AI代理更可靠、更强大！** 🚀
+**AceAgent - Making AI agents more reliable and powerful!** 🚀
