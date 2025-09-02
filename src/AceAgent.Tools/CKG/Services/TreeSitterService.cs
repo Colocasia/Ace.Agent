@@ -104,7 +104,7 @@ public class TreeSitterService : IDisposable
         }
         else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
         {
-            return "libckg_wrapper.so";
+            return "ckg_wrapper.so";
         }
         else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
         {

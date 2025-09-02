@@ -82,7 +82,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: native-${{ matrix.platform }}
-        path: src/AceAgent.Tools/CKG/native/runtimes/${{ matrix.platform }}/native/*
+        path: src/AceAgent.Tools/CKG/runtimes/${{ matrix.platform }}/native/*
         
   commit-artifacts:
     needs: build

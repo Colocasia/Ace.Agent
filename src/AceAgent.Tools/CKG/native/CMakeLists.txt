@@ -32,7 +32,7 @@ else()
 endif()
 
 # Create platform-specific output directory
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/runtimes/${PLATFORM_DIR}/native)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../runtimes/${PLATFORM_DIR}/native)
 file(MAKE_DIRECTORY ${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
 
 # For Windows, also set the output directory for different configurations
@@ -148,6 +148,13 @@ endif()
 add_executable(test_all_languages test_all_languages.c)
 target_link_libraries(test_all_languages tree-sitter ${LANGUAGE_LIBRARIES})
 target_include_directories(test_all_languages PRIVATE ${TREE_SITTER_INCLUDE})
+
+# Set test executable output directory to match library output directory
+set_target_properties(test_all_languages PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}
+    RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}
+    RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}
+)
 
 # Add clean rule
 add_custom_target(clean-all
