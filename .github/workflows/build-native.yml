@@ -68,13 +68,13 @@ jobs:
       run: cmake --build . --config Release
       
     - name: Test
-      working-directory: src/AceAgent.Tools/CKG/native/build
+      working-directory: src/AceAgent.Tools/CKG
       run: |
         if [ "${{ matrix.os }}" = "windows-latest" ]; then
           echo "Skipping tests on Windows due to test executable compilation issues"
           echo "DLL should be generated successfully"
         else
-          ./test_all_languages
+          ./runtimes/${{ matrix.platform }}/native/test_all_languages
         fi
       shell: bash
       
