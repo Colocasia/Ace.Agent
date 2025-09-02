@@ -258,7 +258,7 @@ dotnet test --filter "TestName"
 如有问题或建议，请通过以下方式联系：
 - 提交 Issue
 - 发起 Discussion
-- 发送邮件至 [aceagent@example.com]
+- 发送邮件至 [qq358277299@gmail.com]
 
 ---
 
