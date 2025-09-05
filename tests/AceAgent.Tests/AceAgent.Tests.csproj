@@ -1,16 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
   </PropertyGroup>
 
-
+  <ItemGroup>
+    <ProjectReference Include="../../src/AceAgent.Core/AceAgent.Core.csproj" />
+    <ProjectReference Include="../../src/AceAgent.Infrastructure/AceAgent.Infrastructure.csproj" />
+    <ProjectReference Include="../../src/AceAgent.LLM/AceAgent.LLM.csproj" />
+    <ProjectReference Include="../../src/AceAgent.Tools/AceAgent.Tools.csproj" />
+    <ProjectReference Include="../../src/AceAgent.Services/AceAgent.Services.csproj" />
+    <ProjectReference Include="../../src/AceAgent.CLI/AceAgent.CLI.csproj" />
+  </ItemGroup>
 
   <ItemGroup>
     <Using Include="Xunit" />
+    <Using Include="FluentAssertions" />
+    <Using Include="Moq" />
   </ItemGroup>
 
 </Project>

@@ -5,7 +5,24 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <AssemblyName>aceagent-cli</AssemblyName>
+    <AssemblyName>aceagent</AssemblyName>
+    
+    <!-- NuGet Global Tool Configuration -->
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>aceagent</ToolCommandName>
+    <PackageId>AceAgent</PackageId>
+    
+    <!-- Package Metadata -->
+    <Title>AceAgent - AI Coding Assistant for .NET</Title>
+    <Description>A powerful AI coding assistant built for .NET developers, featuring multi-LLM support, advanced code analysis, and comprehensive development tools.</Description>
+    <Authors>AceAgent Team</Authors>
+    <PackageProjectUrl>https://github.com/gaoxiang/AceAgent</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/gaoxiang/AceAgent</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>ai;coding;assistant;llm;dotnet;csharp;development;tools</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,6 +38,10 @@
     <PackageReference Include="YamlDotNet" Version="13.7.1" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>
